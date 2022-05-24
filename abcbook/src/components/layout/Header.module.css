@@ -1,11 +1,12 @@
 .headerContainer {
-    max-width: 100%;
+    max-width: 80%;
     height: 50px;
-    background-color: gray;
+    border-bottom: 1px solid teal;
+    margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 100px;
+    padding: 0 50px;
 }
 
 .headerLinks {

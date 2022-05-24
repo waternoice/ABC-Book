@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Heading } from '@chakra-ui/react';
 import classes from './Header.module.css';
 import { Link } from 'react-router-dom';
 
@@ -15,7 +16,9 @@ const Books = () => {
     }
     return (
         <div className={classes.headerContainer}>
-            <div>ABC-Books</div>
+            <Heading color="teal" size="lg">
+                ABC-Book
+            </Heading>
 
             {isLogin && (
                 <div>

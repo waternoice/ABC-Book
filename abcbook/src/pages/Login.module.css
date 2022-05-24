@@ -1,16 +1,10 @@
 .formContainer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin-top: -50px;
-}
-
-.formLogo {
-    height: 50px;
-    width: 50px;
-    align-self: center;
-    padding-bottom: 20px;
 }
 
 .form {
@@ -20,37 +14,7 @@
     border-radius: 10px;
     border: 1px solid black;
     width: 400px;
-    background-color: rgb(216, 210, 210);
-}
-
-.formLabel {
-    padding-bottom: 10px;
-}
-.formLabelInvalid {
-    padding-bottom: 10px;
-}
-
-.formLabelInvalid input {
-    border: 1px solid #b40e0e;
-    background-color: #fddddd;
-}
-
-.formInput {
-    margin-top: 5px;
-    width: 95%;
-    height: 25px;
-}
-
-.formButton {
-    margin-top: 20px;
-    width: 100px;
-    height: 30px;
-}
-
-.errorText {
-    color: rgb(226, 75, 75);
-    padding: 5px 0;
-    margin: 0;
+    background-color: white;
 }
 
 @media only screen and (max-width: 600px) {
@@ -63,14 +27,5 @@
         padding: 0;
         width: 85%;
         background-color: transparent;
-    }
-
-    .formButton {
-        width: 97%;
-    }
-
-    .formLabel {
-        padding-bottom: 20px;
-        width: 100%;
     }
 }

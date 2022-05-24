@@ -1,6 +1,17 @@
 import classes from './Login.module.css';
 import logo from '../assets/user.svg';
 import useLoginForm from '../hooks/use-loginForm';
+import AuthService from '../services/auth.service';
+import {
+    FormControl,
+    FormLabel,
+    FormErrorMessage,
+    Input,
+    Button,
+    Image,
+    Flex,
+    Heading
+} from '@chakra-ui/react';
 
 const Login = () => {
     let regrex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -23,65 +34,68 @@ const Login = () => {
         reset: resetinputPassword
     } = useLoginForm((value: any) => value.trim() !== '');
 
-    const emailInputClasses = inputEmailHasError ? classes.formLabelInvalid : classes.formLabel;
-    const passwordInputClasses = inputPasswordHasError
-        ? classes.formLabelInvalid
-        : classes.formLabel;
-
     let isFormValid = false;
     if (inputEmailIsValid && inputPasswordIsValid) {
         isFormValid = true;
     }
 
-    const onFormSubmit = (event: any) => {
+    const onFormSubmit = async (event: any) => {
         event.preventDefault();
         if (!isFormValid) {
             return;
         }
-        console.log(inputEmail);
-        console.log(inputPassword);
+        const userData = await AuthService.login(inputEmail, inputPassword);
+        if (userData) {
+            sessionStorage.setItem('user', userData.name);
+            sessionStorage.setItem('role', userData.role);
+            sessionStorage.setItem('isLoggedin', 'true');
+            console.log('logged in successfully');
+        }
 
         resetinputEmail();
         resetinputPassword();
     };
 
     return (
-        <div className={classes.formContainer} onSubmit={onFormSubmit}>
-            <form className={classes.form}>
-                <img src={logo} alt="user-logo" className={classes.formLogo} />
-                <div className={emailInputClasses}>
-                    <label htmlFor="email">Email</label>
-                    <input
+        <div className={classes.formContainer}>
+            <Heading color="teal" size="2xl">
+                ABC-Book
+            </Heading>
+            <form className={classes.form} onSubmit={onFormSubmit}>
+                <Flex pb={2} alignSelf="center">
+                    <Image src={logo} alt="user-logo" boxSize="50px" />
+                </Flex>
+                <FormControl isInvalid={inputEmailHasError}>
+                    <FormLabel htmlFor="email">Email</FormLabel>
+                    <Input
                         type="email"
                         id="text"
-                        className={classes.formInput}
                         value={inputEmail}
                         onChange={inputEmailValueHandler}
                         onBlur={inputEmailBlurHandler}
                     />
                     {inputEmailHasError && (
-                        <p className={classes.errorText}>Email not in the correct format</p>
+                        <FormErrorMessage>Email not in the correct format</FormErrorMessage>
                     )}
-                </div>
-                <div className={passwordInputClasses}>
-                    <label htmlFor="password">Password</label>
-                    <input
+                </FormControl>
+                <FormControl isInvalid={inputPasswordHasError}>
+                    <FormLabel htmlFor="password">Password</FormLabel>
+                    <Input
                         type="password"
                         id="password"
-                        className={classes.formInput}
                         value={inputPassword}
                         onChange={inputPasswordValueHandler}
                         onBlur={inputPasswordBlurHandler}
                     />
                     {inputPasswordHasError && (
-                        <p className={classes.errorText}>Password cannot be empty</p>
+                        <FormErrorMessage>Password cannot be empty</FormErrorMessage>
                     )}
-                </div>
-                <div>
-                    <button className={classes.formButton} disabled={!isFormValid}>
+                </FormControl>
+                <FormControl>
+                    <Button colorScheme="teal" mt={2} isDisabled={!isFormValid} type="submit">
                         Login
-                    </button>
-                </div>
+                    </Button>
+                </FormControl>
             </form>
         </div>
     );
