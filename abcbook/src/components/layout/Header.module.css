@@ -1,0 +1,24 @@
+.headerContainer {
+    max-width: 100%;
+    height: 50px;
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+}
+
+.headerLinks {
+    text-decoration: none;
+    color: black;
+    padding-left: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    .headerContainer {
+        padding: 0 30px;
+    }
+    .headerLinks {
+        padding-left: 20px;
+    }
+}

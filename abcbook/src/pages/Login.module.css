@@ -1,0 +1,60 @@
+.formContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: -50px;
+}
+
+.formLogo {
+    height: 50px;
+    width: 50px;
+    align-self: center;
+    padding-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid black;
+    width: 400px;
+    background-color: rgb(216, 210, 210);
+}
+
+.formLabel {
+    padding-bottom: 10px;
+}
+
+.formInput {
+    width: 95%;
+}
+
+.formButton {
+    margin-top: 20px;
+    width: 100px;
+    height: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    .formContainer {
+        height: 80vh;
+    }
+    .form {
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        width: 85%;
+        background-color: transparent;
+    }
+
+    .formButton {
+        width: 97%;
+    }
+
+    .formLabel {
+        padding-bottom: 20px;
+        width: 100%;
+    }
+}
