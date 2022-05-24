@@ -26,15 +26,31 @@
 .formLabel {
     padding-bottom: 10px;
 }
+.formLabelInvalid {
+    padding-bottom: 10px;
+}
+
+.formLabelInvalid input {
+    border: 1px solid #b40e0e;
+    background-color: #fddddd;
+}
 
 .formInput {
+    margin-top: 5px;
     width: 95%;
+    height: 25px;
 }
 
 .formButton {
     margin-top: 20px;
     width: 100px;
     height: 30px;
+}
+
+.errorText {
+    color: rgb(226, 75, 75);
+    padding: 5px 0;
+    margin: 0;
 }
 
 @media only screen and (max-width: 600px) {
