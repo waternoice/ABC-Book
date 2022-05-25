@@ -9,17 +9,8 @@
     padding: 0 50px;
 }
 
-.headerLinks {
-    text-decoration: none;
-    color: black;
-    padding-left: 30px;
-}
-
 @media only screen and (max-width: 600px) {
     .headerContainer {
         padding: 0 30px;
-    }
-    .headerLinks {
-        padding-left: 20px;
     }
 }

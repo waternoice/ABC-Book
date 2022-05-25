@@ -20,12 +20,19 @@ const login = async (userEmail: string, userPassword: string): Promise<any> => {
     return authUser;
 };
 
+const retriveAll = async (): Promise<any> => {
+    const response = await fetch('mockData/mockUser.json');
+    const responseData = await response.json();
+    return responseData;
+};
+
 const register = () => {};
 
 const AuthService = {
     register,
     login,
-    logout
+    logout,
+    retriveAll
 };
 
 export default AuthService;

@@ -1,10 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import loginReducer from './login';
+import usersReducer from './users';
 
 const store = configureStore({
     reducer: {
-        login: loginReducer
+        login: loginReducer,
+        user: usersReducer
     }
 });
+
+export type RootState = ReturnType<typeof store.getState>;
 
 export default store;
