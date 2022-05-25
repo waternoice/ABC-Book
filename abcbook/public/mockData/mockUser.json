@@ -3,7 +3,7 @@
     "id": "1",
     "role": "admin",
     "username": "Jack",
-    "dataJoined": "2020-12-12",
+    "dateJoined": "2020-12-12",
     "email": "adminjack@email.com",
     "password": "password"
   },
@@ -11,7 +11,7 @@
     "id": "2",
     "role": "editor",
     "username": "Mary",
-    "dataJoined": "2021-12-12",
+    "dateJoined": "2021-12-12",
     "email": "editormary@email.com",
     "password": "password"
   },
@@ -19,7 +19,7 @@
     "id": "3",
     "role": "member",
     "username": "Jack",
-    "dataJoined": "2020-09-12",
+    "dateJoined": "2020-09-12",
     "email": "memberjack@email.com",
     "password": "password"
   },
@@ -27,7 +27,7 @@
     "id": "4",
     "role": "member",
     "username": "John",
-    "dataJoined": "2022-01-12",
+    "dateJoined": "2022-01-12",
     "email": "memberjohn@email.com",
     "password": "password"
   },
@@ -35,7 +35,7 @@
     "id": "5",
     "role": "member",
     "username": "Amber",
-    "dataJoined": "2021-12-06",
+    "dateJoined": "2021-12-06",
     "email": "memberamber@email.com",
     "password": "password"
   },
@@ -43,7 +43,7 @@
     "id": "6",
     "role": "member",
     "username": "Alex",
-    "dataJoined": "2019-03-12",
+    "dateJoined": "2019-03-12",
     "email": "memberalex@email.com",
     "password": "password"
   }
