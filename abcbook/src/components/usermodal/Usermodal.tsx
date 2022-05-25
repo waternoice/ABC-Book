@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
     Modal,
     ModalOverlay,
@@ -29,31 +28,31 @@ const Usermodal = (props: any) => {
         valueIsValid: inputNameIsValid,
         valueInputHandler: inputNameChangeHandler,
         reset: resetName
-    } = useUserForm(isEmpty);
+    } = useUserForm(isEmpty, isAdd, props.username);
     const {
         value: inputRole,
         valueIsValid: inputRoleIsValid,
         valueInputHandler: inputRoleChangeHandler,
         reset: resetRole
-    } = useUserForm(isEmpty);
+    } = useUserForm(isEmpty, isAdd, props.role);
     const {
         value: inputPassword,
         valueIsValid: inputPasswordIsValid,
         valueInputHandler: inputPasswordChangeHandler,
         reset: resetPassword
-    } = useUserForm(isEmpty);
+    } = useUserForm(isEmpty, isAdd, props.password);
     const {
         value: inputEmail,
         valueIsValid: inputEmailIsValid,
         valueInputHandler: inputEmailChangeHandler,
         reset: resetEmail
-    } = useUserForm(isEmpty);
+    } = useUserForm(isEmpty, isAdd, props.email);
     const {
         value: inputDate,
         valueIsValid: inputDateIsValid,
         valueInputHandler: inputDateChangeHandler,
         reset: resetDate
-    } = useUserForm(isEmpty);
+    } = useUserForm(isEmpty, isAdd, props.dataJoined);
 
     let validForm = false;
     if (
@@ -70,6 +69,18 @@ const Usermodal = (props: any) => {
         if (isAdd) {
             dispatch(
                 usersActions.addUser({
+                    id: props.id + 1,
+                    role: inputRole,
+                    username: inputName,
+                    email: inputEmail,
+                    dataJoined: inputDate,
+                    password: inputPassword
+                })
+            );
+        }
+        if (!isAdd) {
+            dispatch(
+                usersActions.updateUser({
                     id: props.id + 1,
                     role: inputRole,
                     username: inputName,

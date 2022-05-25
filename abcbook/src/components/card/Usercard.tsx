@@ -8,7 +8,7 @@ import Usermodal from '../usermodal/Usermodal';
 const Usercard = (props: any) => {
     const dispatch = useAppDispatch();
 
-    const { username, role, dateJoined, id } = props.user;
+    const { username, role, dateJoined, id, password, email } = props.user;
 
     const deleteUserHandler = () => {
         dispatch(usersActions.deleteUser(id));
@@ -24,7 +24,15 @@ const Usercard = (props: any) => {
                 <p>Date Join: {dateJoined}</p>
             </div>
             <div className={classes.buttonGroup}>
-                <Usermodal isAdd={isAddUserButton} id={props.id} />
+                <Usermodal
+                    isAdd={isAddUserButton}
+                    id={props.id}
+                    username={username}
+                    role={role}
+                    dataJoined={dateJoined}
+                    password={password}
+                    email={email}
+                />
                 <Button ml="2" onClick={deleteUserHandler}>
                     Delete
                 </Button>

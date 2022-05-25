@@ -37,8 +37,28 @@ const usersSlice = createSlice({
             const id = action.payload;
             state.users = state.users.filter((user) => user.id !== id);
         },
-        updateUser(state, action) {},
-        loadUser(state) {}
+        updateUser(state, action) {
+            const newValue = action.payload;
+            const objIndex = state.users.findIndex((user) => user.id === newValue.id);
+
+            // make new object of updated object.
+            const updatedObj = {
+                ...state.users[objIndex],
+                id: newValue.id,
+                role: newValue.role,
+                username: newValue.username,
+                email: newValue.email,
+                dataJoined: newValue.dataJoined,
+                password: newValue.password
+            };
+
+            // make final new array of objects by combining updated object.
+            state.users = [
+                ...state.users.slice(0, objIndex),
+                updatedObj,
+                ...state.users.slice(objIndex + 1)
+            ];
+        }
     },
     extraReducers(builder) {
         builder.addCase(fetchUsers.fulfilled, (state, action) => {

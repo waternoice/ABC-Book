@@ -28,6 +28,8 @@ const Usertest = () => {
                         key={index}
                         id={length}
                         user={{
+                            email: user.email,
+                            password: user.password,
                             id: user.id,
                             role: user.role,
                             username: user.username,
