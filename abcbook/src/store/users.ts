@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import AuthService from '../services/auth.service';
 
 export interface userDetailState {
     users: Array<any>;
@@ -36,13 +35,16 @@ const usersSlice = createSlice({
         },
         deleteUser(state, action) {
             const id = action.payload;
-            state.users = state.users.filter((user) => user.id === id);
+            state.users = state.users.filter((user) => user.id !== id);
         },
-        updateUser(state, action) {}
+        updateUser(state, action) {},
+        loadUser(state) {}
     },
     extraReducers(builder) {
         builder.addCase(fetchUsers.fulfilled, (state, action) => {
-            return action.payload;
+            state.status = 'success';
+            // Add any fetched posts to the array
+            state.users = state.users.concat(action.payload);
         });
     }
 });

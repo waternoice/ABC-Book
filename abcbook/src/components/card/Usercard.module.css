@@ -1,0 +1,12 @@
+.userCard {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid teal;
+    width: 50%;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 10px;
+}
+.buttonGroup {
+    align-self: center;
+}

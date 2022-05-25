@@ -1,6 +1,6 @@
 [
   {
-    "id": "1",
+    "id": 1,
     "role": "admin",
     "username": "Jack",
     "dateJoined": "2020-12-12",
@@ -8,7 +8,7 @@
     "password": "password"
   },
   {
-    "id": "2",
+    "id": 2,
     "role": "editor",
     "username": "Mary",
     "dateJoined": "2021-12-12",
@@ -16,7 +16,7 @@
     "password": "password"
   },
   {
-    "id": "3",
+    "id": 3,
     "role": "member",
     "username": "Jack",
     "dateJoined": "2020-09-12",
@@ -24,7 +24,7 @@
     "password": "password"
   },
   {
-    "id": "4",
+    "id": 4,
     "role": "member",
     "username": "John",
     "dateJoined": "2022-01-12",
@@ -32,7 +32,7 @@
     "password": "password"
   },
   {
-    "id": "5",
+    "id": 5,
     "role": "member",
     "username": "Amber",
     "dateJoined": "2021-12-06",
@@ -40,7 +40,7 @@
     "password": "password"
   },
   {
-    "id": "6",
+    "id": 6,
     "role": "member",
     "username": "Alex",
     "dateJoined": "2019-03-12",

@@ -12,7 +12,7 @@ import {
     Flex,
     Heading
 } from '@chakra-ui/react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../store/hooks';
 import { loginActions } from '../store/login';
 
 const Login = () => {
@@ -40,7 +40,7 @@ const Login = () => {
     if (inputEmailIsValid && inputPasswordIsValid) {
         isFormValid = true;
     }
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const onFormSubmit = async (event: any) => {
         event.preventDefault();

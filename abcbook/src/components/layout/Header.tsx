@@ -1,12 +1,12 @@
 import { Button, Heading } from '@chakra-ui/react';
 import classes from './Header.module.css';
-import { useSelector, useDispatch } from 'react-redux';
+import { useAppSelector, useAppDispatch } from '../../store/hooks';
 import { loginActions } from '../../store/login';
 import { RootState } from '../../store';
 
 const Books = () => {
-    const isLogin = useSelector((state: RootState) => state.login.isAuthenticated);
-    const dispatch = useDispatch();
+    const isLogin = useAppSelector((state: RootState) => state.login.isAuthenticated);
+    const dispatch = useAppDispatch();
     const logoutHandler = () => {
         dispatch(loginActions.logout());
     };

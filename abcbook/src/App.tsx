@@ -7,12 +7,13 @@ import Analyse from './pages/Analyse';
 import Header from './components/layout/Header';
 import Login from './pages/Login';
 import MenuBar from './components/layout/MenuBar';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from './store/hooks';
 import Protected from './services/Protected';
 import Public from './services/Public';
+import Usertest from './pages/Usertest';
 
 function App() {
-    const isLogin = useSelector((state: any) => state.login.isAuthenticated);
+    const isLogin = useAppSelector((state: any) => state.login.isAuthenticated);
     return (
         <BrowserRouter>
             <Header />
@@ -38,7 +39,7 @@ function App() {
                     path="/users"
                     element={
                         <Protected isLoggedIn={isLogin}>
-                            <Users />
+                            <Usertest />
                         </Protected>
                     }
                 />

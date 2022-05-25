@@ -1,14 +1,14 @@
 import { Tabs, TabList, Tab } from '@chakra-ui/react';
 import classes from './Header.module.css';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../store/hooks';
 import { RootState } from '../../store';
 
 const MenuBar = () => {
     let isAdmin = false;
     let isEditor = false;
     let isMember = false;
-    const userType = useSelector((state: RootState) => state.login.role);
+    const userType = useAppSelector((state: RootState) => state.login.role);
     if (userType === 'admin') {
         isAdmin = true;
     }
