@@ -1,38 +1,22 @@
-import React, { useState } from 'react';
-import { Heading } from '@chakra-ui/react';
+import { Button, Heading } from '@chakra-ui/react';
 import classes from './Header.module.css';
-import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { loginActions } from '../../store/login';
 
 const Books = () => {
-    const [isLogin, setIsLogin] = useState(false);
-    const [isUser, setIsUser] = useState(false);
-
-    if (Math.random() > 0.5) {
-        setIsLogin(true);
-    }
-    if (Math.random() > 0.5) {
-        console.log('i am a user');
-        setIsUser(true);
-    }
+    const isLogin = useSelector((state: any) => state.login.isAuthenticated);
+    const dispatch = useDispatch();
+    const logoutHandler = () => {
+        dispatch(loginActions.logout());
+    };
     return (
         <div className={classes.headerContainer}>
             <Heading color="teal" size="lg">
                 ABC-Book
             </Heading>
-
             {isLogin && (
                 <div>
-                    <Link to="/books" className={classes.headerLinks}>
-                        Books
-                    </Link>
-                    {!isUser && (
-                        <Link to="/users" className={classes.headerLinks}>
-                            User
-                        </Link>
-                    )}
-                    <Link to="/analyse" className={classes.headerLinks}>
-                        Analyse
-                    </Link>
+                    <Button onClick={logoutHandler}>Logout</Button>
                 </div>
             )}
         </div>

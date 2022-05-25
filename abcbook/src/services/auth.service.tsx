@@ -19,6 +19,7 @@ const login = async (userEmail: string, userPassword: string): Promise<any> => {
     });
     return authUser;
 };
+
 const register = () => {};
 
 const AuthService = {

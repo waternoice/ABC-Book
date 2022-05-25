@@ -12,6 +12,8 @@ import {
     Flex,
     Heading
 } from '@chakra-ui/react';
+import { useDispatch } from 'react-redux';
+import { loginActions } from '../store/login';
 
 const Login = () => {
     let regrex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -38,6 +40,7 @@ const Login = () => {
     if (inputEmailIsValid && inputPasswordIsValid) {
         isFormValid = true;
     }
+    const dispatch = useDispatch();
 
     const onFormSubmit = async (event: any) => {
         event.preventDefault();
@@ -49,7 +52,14 @@ const Login = () => {
             sessionStorage.setItem('user', userData.name);
             sessionStorage.setItem('role', userData.role);
             sessionStorage.setItem('isLoggedin', 'true');
-            console.log('logged in successfully');
+            dispatch(
+                loginActions.login({
+                    username: userData.name,
+                    role: userData.role
+                })
+            );
+        } else {
+            dispatch(loginActions.loginFailed());
         }
 
         resetinputEmail();
