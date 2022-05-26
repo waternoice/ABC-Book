@@ -58,6 +58,19 @@ const usersSlice = createSlice({
                 updatedObj,
                 ...state.users.slice(objIndex + 1)
             ];
+        },
+        sortColumn(state, action) {
+            console.log(action);
+            const { column, direction } = action.payload;
+            console.log(column, direction);
+            console.log([...state.users][0][column]);
+            if (direction) {
+                state.users = [...state.users].sort((a, b) => a[column].localeCompare(b[column]));
+            } else {
+                state.users = [...state.users]
+                    .sort((a, b) => a[column].localeCompare(b[column]))
+                    .reverse();
+            }
         }
     },
     extraReducers(builder) {

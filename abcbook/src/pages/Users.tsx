@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
     Table,
     Thead,
@@ -13,10 +13,11 @@ import {
     Button
 } from '@chakra-ui/react';
 import Usermodal from '../components/usermodal/Usermodal';
-import { fetchUsers } from '../store/users';
+import users, { fetchUsers, usersActions } from '../store/users';
 import Useraction from '../components/cardButton/Useraction';
 let isinitial = true;
 const Users = () => {
+    const [isAscending, setIsAscending] = useState(false);
     const dispatch = useAppDispatch();
     useEffect(() => {
         if (isinitial) {
@@ -26,6 +27,11 @@ const Users = () => {
     }, [dispatch]);
 
     const usersItems = useAppSelector((state) => state.user.users);
+
+    const sortHandler = (column: string, direction: boolean) => {
+        dispatch(usersActions.sortColumn({ column, direction }));
+        setIsAscending(!direction);
+    };
 
     return (
         <Flex justifyContent="center" alignSelf="center">
@@ -37,7 +43,13 @@ const Users = () => {
                     </TableCaption>
                     <Thead>
                         <Tr>
-                            <Th>Username</Th>
+                            <Th
+                                onClick={() => {
+                                    sortHandler('username', isAscending);
+                                }}
+                            >
+                                Username
+                            </Th>
                             <Th>Role</Th>
                             <Th>Date Joined</Th>
                             <Th>Actions</Th>
