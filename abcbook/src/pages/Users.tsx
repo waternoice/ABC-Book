@@ -1,130 +1,73 @@
-import { Table, TableContainer, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
-import React from 'react';
-
-import { useTable, useFilters, useSortBy, usePagination } from 'react-table';
-
-const User = () => {
-    const columns = [
-        {
-            Header: 'User List',
-            columns: [
-                {
-                    Header: 'Role',
-                    accessor: 'role'
-                },
-                {
-                    Header: 'Username',
-                    accessor: 'username'
-                },
-                {
-                    Header: 'Date Joined',
-                    accessor: 'datejoined'
-                },
-                {
-                    Header: 'Actions',
-                    accessor: 'action'
-                }
-            ]
+import { useAppDispatch, useAppSelector } from '../store/hooks';
+import { useEffect } from 'react';
+import {
+    Table,
+    Thead,
+    Tbody,
+    Tr,
+    Th,
+    Td,
+    TableCaption,
+    TableContainer,
+    Flex,
+    Button
+} from '@chakra-ui/react';
+import Bookmodal from '../components/bookmodal/Bookmodal';
+import { fetchUsers } from '../store/users';
+import Useraction from '../components/cardButton/Useraction';
+let isinitial = true;
+const Users = () => {
+    const dispatch = useAppDispatch();
+    useEffect(() => {
+        if (isinitial) {
+            dispatch(fetchUsers());
+            isinitial = false;
         }
-    ];
+    }, [dispatch]);
 
-    const data = [
-        {
-            id: '1',
-            role: 'admin',
-            username: 'Jack',
-            datejoined: '2020-12-12',
-            email: 'adminjack@email.com',
-            password: 'password'
-        },
-        {
-            id: '2',
-            role: 'editor',
-            username: 'Mary',
-            datejoined: '2021-12-12',
-            email: 'editormary@email.com',
-            password: 'password'
-        },
-        {
-            id: '3',
-            role: 'member',
-            username: 'Jack',
-            datejoined: '2020-09-12',
-            email: 'memberjack@email.com',
-            password: 'password'
-        },
-        {
-            id: '4',
-            role: 'member',
-            username: 'John',
-            datejoined: '2022-01-12',
-            email: 'memberjohn@email.com',
-            password: 'password'
-        },
-        {
-            id: '5',
-            role: 'member',
-            username: 'Amber',
-            datejoined: '2021-12-06',
-            email: 'memberamber@email.com',
-            password: 'password'
-        },
-        {
-            id: '6',
-            role: 'member',
-            username: 'Alex',
-            datejoined: '2019-03-12',
-            email: 'memberalex@email.com',
-            password: 'password'
-        }
-    ];
-
-    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable(
-        {
-            columns,
-            data
-        },
-        useFilters,
-        useSortBy,
-        usePagination
-    );
+    const usersItems = useAppSelector((state) => state.user.users);
 
     return (
-        <div>
-            {/* <input
-                className="form-control form-control-solid"
-                placeholder="Search Employees"
-                onChange={(e) => setFilter('name', e.target.value)}
-            /> */}
+        <Flex justifyContent="center" alignSelf="center">
             <TableContainer>
-                <Table {...getTableProps()} variant="striped" colorScheme="teal" size="lg">
+                <Bookmodal isAdd={true} id={usersItems.length + 1} />
+                <Table variant="striped" colorScheme="teal" size="md">
+                    <TableCaption fontSize="2xl" placement="top">
+                        User List
+                    </TableCaption>
                     <Thead>
-                        {headerGroups.map((headerGroup) => (
-                            <Tr {...headerGroup.getHeaderGroupProps()}>
-                                {headerGroup.headers.map((column) => (
-                                    <Th {...column.getHeaderProps()}>{column.render('Header')}</Th>
-                                ))}
+                        <Tr>
+                            <Th>Username</Th>
+                            <Th>Role</Th>
+                            <Th>Date Joined</Th>
+                            <Th>Actions</Th>
+                        </Tr>
+                    </Thead>
+                    <Tbody>
+                        {usersItems.map((user) => (
+                            <Tr key={user.id}>
+                                <Td>{user.username}</Td>
+                                <Td>{user.role}</Td>
+                                <Td>{user.dateJoined}</Td>
+                                <Td>
+                                    <Useraction
+                                        user={{
+                                            id: user.id,
+                                            username: user.username,
+                                            role: user.role,
+                                            dateJoined: user.dateJoined,
+                                            email: user.email,
+                                            password: user.password
+                                        }}
+                                    />
+                                </Td>
                             </Tr>
                         ))}
-                    </Thead>
-                    <Tbody {...getTableBodyProps()}>
-                        {rows.map((row, i) => {
-                            prepareRow(row);
-                            return (
-                                <Tr {...row.getRowProps()}>
-                                    {row.cells.map((cell) => {
-                                        return (
-                                            <Td {...cell.getCellProps()}>{cell.render('Cell')}</Td>
-                                        );
-                                    })}
-                                </Tr>
-                            );
-                        })}
                     </Tbody>
                 </Table>
             </TableContainer>
-        </div>
+        </Flex>
     );
 };
 
-export default User;
+export default Users;

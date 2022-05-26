@@ -52,7 +52,7 @@ const Usermodal = (props: any) => {
         valueIsValid: inputDateIsValid,
         valueInputHandler: inputDateChangeHandler,
         reset: resetDate
-    } = useUserForm(isEmpty, isAdd, props.dataJoined);
+    } = useUserForm(isEmpty, isAdd, props.dateJoined);
 
     let validForm = false;
     if (
@@ -81,7 +81,7 @@ const Usermodal = (props: any) => {
         if (!isAdd) {
             dispatch(
                 usersActions.updateUser({
-                    id: props.id + 1,
+                    id: props.id,
                     role: inputRole,
                     username: inputName,
                     email: inputEmail,
