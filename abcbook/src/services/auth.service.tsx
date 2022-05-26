@@ -17,6 +17,9 @@ const login = async (userEmail: string, userPassword: string): Promise<any> => {
     const authUser = responseData.find((u: any) => {
         return u.email === userEmail && u.password === userPassword;
     });
+    sessionStorage.setItem('user', authUser.username);
+    sessionStorage.setItem('isLoggedIn', 'true');
+    sessionStorage.setItem('role', authUser.role);
     return authUser;
 };
 

@@ -52,12 +52,7 @@ const Login = () => {
             sessionStorage.setItem('user', userData.name);
             sessionStorage.setItem('role', userData.role);
             sessionStorage.setItem('isLoggedin', 'true');
-            dispatch(
-                loginActions.login({
-                    username: userData.name,
-                    role: userData.role
-                })
-            );
+            dispatch(loginActions.login(userData));
         } else {
             dispatch(loginActions.loginFailed());
         }

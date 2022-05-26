@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "book 1",
+    "description": "book 1 with 1 copy",
+    "genre": "action",
+    "author": "writer tom",
+    "published": "2017",
+    "availability": "1",
+    "lastBorrower": "John"
+  },
+  {
+    "id": 2,
+    "title": "the book 2",
+    "description": "this is book 2",
+    "genre": "action",
+    "author": "writer tim",
+    "published": "2007",
+    "availability": "2",
+    "lastBorrower": "Jack"
+  },
+  {
+    "id": 3,
+    "title": "a book 3",
+    "description": "this is book 3",
+    "genre": "action",
+    "author": "writer mary",
+    "published": "2017",
+    "availability": "1",
+    "lastBorrower": "Mary"
+  },
+  {
+    "id": 4,
+    "title": "book 4",
+    "description": "this is book 4",
+    "genre": "romance",
+    "author": "writer alex",
+    "published": "2017",
+    "availability": "3",
+    "lastBorrower": "John"
+  },
+  {
+    "id": 5,
+    "title": "book 5",
+    "description": "this is book 5",
+    "genre": "fiction",
+    "author": "writer james",
+    "published": "2017",
+    "availability": "1",
+    "lastBorrower": "Amber"
+  },
+  {
+    "id": 6,
+    "title": "a book 6",
+    "description": "this is book 6",
+    "genre": "action",
+    "author": "writer potter",
+    "published": "1997",
+    "availability": "1",
+    "lastBorrower": "John"
+  },
+  {
+    "id": 8,
+    "title": "book 8",
+    "description": "this is book 8 with 1 copy",
+    "genre": "action",
+    "author": "writer harry",
+    "published": "1997",
+    "availability": "1",
+    "lastBorrower": "Alex"
+  },
+  {
+    "id": 9,
+    "title": "the book 9",
+    "description": "book 9 with 1 copy",
+    "genre": "action",
+    "author": "writer tom",
+    "published": "2017",
+    "availability": "1",
+    "lastBorrower": "John"
+  },
+  {
+    "id": 10,
+    "title": "my book 10",
+    "description": "who written book 10",
+    "genre": "fiction",
+    "author": "writer kelly",
+    "published": "2017",
+    "availability": "2",
+    "lastBorrower": "Jack"
+  }
+]
