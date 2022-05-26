@@ -12,7 +12,7 @@ import {
     Flex,
     Button
 } from '@chakra-ui/react';
-import Bookmodal from '../components/bookmodal/Bookmodal';
+import Usermodal from '../components/usermodal/Usermodal';
 import { fetchUsers } from '../store/users';
 import Useraction from '../components/cardButton/Useraction';
 let isinitial = true;
@@ -30,7 +30,7 @@ const Users = () => {
     return (
         <Flex justifyContent="center" alignSelf="center">
             <TableContainer>
-                <Bookmodal isAdd={true} id={usersItems.length + 1} />
+                <Usermodal isAdd={true} id={usersItems.length + 1} />
                 <Table variant="striped" colorScheme="teal" size="md">
                     <TableCaption fontSize="2xl" placement="top">
                         User List

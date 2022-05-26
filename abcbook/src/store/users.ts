@@ -29,7 +29,7 @@ const usersSlice = createSlice({
                 role: newUser.role,
                 username: newUser.username,
                 email: newUser.email,
-                dataJoined: newUser.dataJoined,
+                dateJoined: newUser.dateJoined,
                 password: newUser.password
             });
         },
@@ -48,7 +48,7 @@ const usersSlice = createSlice({
                 role: newValue.role,
                 username: newValue.username,
                 email: newValue.email,
-                dataJoined: newValue.dataJoined,
+                dateJoined: newValue.dateJoined,
                 password: newValue.password
             };
 

@@ -73,7 +73,7 @@ const Usermodal = (props: any) => {
                     role: inputRole,
                     username: inputName,
                     email: inputEmail,
-                    dataJoined: inputDate,
+                    dateJoined: inputDate,
                     password: inputPassword
                 })
             );
@@ -85,7 +85,7 @@ const Usermodal = (props: any) => {
                     role: inputRole,
                     username: inputName,
                     email: inputEmail,
-                    dataJoined: inputDate,
+                    dateJoined: inputDate,
                     password: inputPassword
                 })
             );

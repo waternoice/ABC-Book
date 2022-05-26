@@ -29,7 +29,7 @@ const Usercard = (props: any) => {
                     id={props.id}
                     username={username}
                     role={role}
-                    dataJoined={dateJoined}
+                    dateJoined={dateJoined}
                     password={password}
                     email={email}
                 />

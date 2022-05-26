@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Books from './pages/Books';
@@ -10,7 +9,6 @@ import MenuBar from './components/layout/MenuBar';
 import { useAppSelector } from './store/hooks';
 import Protected from './services/Protected';
 import Public from './services/Public';
-import Usertest from './pages/Usertest';
 
 function App() {
     const isLogin = useAppSelector((state: any) => state.login.isAuthenticated);

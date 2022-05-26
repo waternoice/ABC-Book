@@ -70,8 +70,7 @@ const Bookmodal = (props: any) => {
         inputDescriptionIsValid &&
         inputGenreIsValid &&
         inputAuthorIsValid &&
-        inputYearIsValid &&
-        inputBorrowerIsValid
+        inputYearIsValid
     ) {
         validForm = true;
     }

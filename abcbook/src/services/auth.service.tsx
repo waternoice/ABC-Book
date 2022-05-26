@@ -2,7 +2,7 @@ export interface authUser {
     id: string;
     role: string;
     name: string;
-    dataJoined: string;
+    dateJoined: string;
     email: string;
     password: string;
 }
