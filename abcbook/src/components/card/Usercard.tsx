@@ -1,5 +1,4 @@
 import { Button } from '@chakra-ui/react';
-import React from 'react';
 import classes from './Usercard.module.css';
 import { useAppDispatch } from '../../store/hooks';
 import { usersActions } from '../../store/users';
